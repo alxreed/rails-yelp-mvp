@@ -1,0 +1,21 @@
+<%= simple_form_for(something) do |f| %>
+<% if something.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% something.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% if something == @restaurant %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :phone_number %>
+    <%= f.input :category %>
+  <% else %>
+    <%= f.input :content %>
+    <%= f.input :rating %>
+  <% end %>
+  <%= f.button :submit %>
+<% end %>
